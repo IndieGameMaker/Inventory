@@ -16,9 +16,9 @@ public class UIMgr : MonoBehaviour
     {
         //게임데이터를 저장하기 위한 클래스 생성
         GameData gameData = new GameData();
-        gameData.playerName = "Zackiller";
-        gameData.level      = 70;
-        gameData.hp         = 1000.0f;
+        gameData.playerName = playerName.text;
+        gameData.level      = int.Parse(level.text);
+        gameData.hp         = float.Parse(hp.text);
 
         //아이템 생성
         for (int i=0; i<5; i++)
@@ -32,5 +32,27 @@ public class UIMgr : MonoBehaviour
         }
 
         DataMgr.instance.SaveData(gameData);
+        
+        playerName.text = "";
+        level.text      = "";
+        hp.text         = "";
+    }
+
+    public void OnLoadClick()
+    {
+        GameData loadData = DataMgr.instance.LoadData();
+
+        playerName.text = loadData.playerName;
+        level.text      = loadData.level.ToString();
+        hp.text         = loadData.hp.ToString();
+
+        string itemStr = "";
+        for(int i=0;i<loadData.equipItems.Count;i++)
+        {
+            itemStr += string.Format("{0}  {1}  {2}\n", loadData.equipItems[i].name
+                                                      , loadData.equipItems[i].desc
+                                                      , loadData.equipItems[i].damage);
+        }
+        itemText.text = itemStr;
     }
 }
