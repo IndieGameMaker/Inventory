@@ -25,14 +25,14 @@ public class UIMgr : MonoBehaviour
         {
             DataInfo.ItemInfo item = new ItemInfo();
             item.name = "Item " + i.ToString("00");
-            item.desc = string.Format("Increase {0}% health up", (i+1)*10.0f);
-            item.damage = (i+1)*10.0f;
+            item.desc = string.Format("Increase {0}% health up", (i+1)*Random.Range(10,30));
+            item.damage = (i+1)*Random.Range(10,30);
 
             gameData.equipItems.Add(item);
         }
 
         DataMgr.instance.SaveData(gameData);
-        
+
         playerName.text = "";
         level.text      = "";
         hp.text         = "";
