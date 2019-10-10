@@ -13,6 +13,9 @@ public class Drop : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        Drag.selectedItem.transform.SetParent(transform);
+        if (this.transform.childCount == 0)
+        {
+            Drag.selectedItem.transform.SetParent(transform);
+        }
     }
 }
