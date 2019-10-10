@@ -25,9 +25,29 @@ public class DataMgr : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SaveData(DataInfo.GameData gameData)
     {
-        
+        try
+        {
+            //2진 파일 포맷터를 생성
+            BinaryFormatter bf = new BinaryFormatter();
+            //파일 생성
+            FileStream file = File.Create(dataPath);
+
+            //파일에 데이터를 기록
+            GameData data = new GameData();
+            data.playerName = gameData.playerName;
+            data.hp         = gameData.hp;
+            data.level      = gameData.level;
+            data.equipItems = gameData.equipItems;
+
+            bf.Serialize(file, data);
+            file.Close();
+        }
+        catch(Exception e)
+        {
+            Debug.Log("Error " + e.Message.ToString());
+        }
     }
+
 }
