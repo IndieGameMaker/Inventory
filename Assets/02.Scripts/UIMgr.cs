@@ -1,10 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DataInfo;
 
 public class UIMgr : MonoBehaviour
 {
+    public InputField playerName;
+    public InputField level;
+    public InputField hp;
+    public Text itemText;
+
+
     public void OnSaveClick()
     {
         //게임데이터를 저장하기 위한 클래스 생성

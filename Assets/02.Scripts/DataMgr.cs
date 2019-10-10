@@ -50,4 +50,20 @@ public class DataMgr : MonoBehaviour
         }
     }
 
+    public GameData LoadData()
+    {
+        if (File.Exists(dataPath))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(dataPath, FileMode.Open);
+            GameData data = (GameData)bf.Deserialize(file);
+            file.Close();
+            return data;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
 }
