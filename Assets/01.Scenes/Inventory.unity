@@ -2177,7 +2177,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 701198668}
-        m_MethodName: OnSaveClick
+        m_MethodName: OnLoadClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2887,6 +2887,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e487254f07940fea87709d338809e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: {fileID: 1952801899}
+  level: {fileID: 1638477362}
+  hp: {fileID: 996660503}
+  itemText: {fileID: 107789040}
 --- !u!4 &701198669
 Transform:
   m_ObjectHideFlags: 0
